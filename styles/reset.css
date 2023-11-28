@@ -1,0 +1,48 @@
+:root {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, button, input, select, textarea {
+    font-size: 1.6rem;
+    font-family: "Orbitron";
+    color: beige;
+    border: none;
+    background: none;
+    text-shadow: 0.5px 0.5px 0.5px #eee;
+}
+
+body {
+    background: url(../images/wallpaper-animes-1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    /* display: flex;
+    align-items: center; */
+    height: 100vh;
+    background: #000b;
+    padding: 0 3.2rem;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.backButton:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
