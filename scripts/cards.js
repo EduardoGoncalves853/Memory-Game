@@ -53,7 +53,7 @@ function clickFlipCard() {
   const arrayCards = document.querySelectorAll(".card");
   arrayCards.forEach((card) => {
     card.addEventListener("click", () => {
-      console.log("Da uma apertadinha aq no pai");
+      // Audio play
       if (card.classList.contains("flipCard")) return;
       new Audio("../audios/flip.wav").play();
       if (firstCard === "") {
@@ -69,30 +69,32 @@ function clickFlipCard() {
   });
 }
 
-function setStartTimer() {
+// function setStartTimer() {
 
-    finishTimerInterval = setInterval(() => {
+//     finishTimerInterval = setInterval(() => {
   
 
-  const dateNow = new Date();
-  const dateDiff = new Date(dateNow - initialDateTimer)
+//   const dateNow = new Date();
+//   const dateDiff = new Date(dateNow - initialDateTimer)
 
-const minutes = 
-String(dateDiff.getMinutes()).padStart("2", "0");
-const seconds = 
-String(dateDiff.getSeconds()).padStart("2", "0");
+// const minutes = 
+// String(dateDiff.getMinutes()).padStart("2", "0");
+// const seconds = 
+// String(dateDiff.getSeconds()).padStart("2", "0");
 
-console.log(`${String(minutes)}:${seconds}`);
+// console.log(`${String(minutes)}:${seconds}`);
 
-timer.innerHTML = `${minutes} : ${seconds}`; 
-}, 1000);
+// timer.innerHTML = `${minutes} : ${seconds}`; 
+// }, 1000);
 
-}
+// }
 
 function checkGamewin() {
     const disabledCards = document.querySelectorAll(".disabledCard");
     console.log(disabledCards);
+
     if (disabledCards.length === 2) {
+      alert(`voçê ganhou`);
       clearInterval(finishTimerInterval);
 
 const userData = {
@@ -164,6 +166,8 @@ clickFlipCard();
 
 const initialDateTimer = new Date();
 let finishTimerInterval;
-setStartTimer();
+// setStartTimer();
+
+checkGamewin();
 
 

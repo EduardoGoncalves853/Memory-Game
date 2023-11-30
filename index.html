@@ -1,44 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Memory Game Online Free">
-    <meta name="creator" content="Reprograma Jucás">
-    <meta name="author" content="João Pedro de Souza dos Santos">
-    <link rel="shortcut icon" href="../images/logo-rj.png" type="image/x-icon">
-    <link rel="stylesheet" href="./styles/newGames.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-    <script src="./scripts/newGame.js" defer></script><!--👈👌 Código TopZeira defer-->
-    <title>M E M O R Y - G A M E</title>
-</head>
-<body> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Memory Game Online Free" />
+    <meta name="creator" content="Reprograma Jucás" />
+    <meta name="author" content="João Pedro de Souza dos Santos" />
+    <link
+      rel="shortcut icon"
+      href="../images/logo-rj.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./styles/newGames.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./scripts/newGame.js" defer></script>
 
+    <!--( defer ) serve para ler o código por inteiro antes de executar, pois , sem ele,a máquina lê apenas linha por linha, fazendo certos códigos quebrarem   -->
+
+    <title>racha-Cuca</title>
+  </head>
+  <body>
     <div class="container">
-        <form class="newGameForm">
-            <header class="newGameHeader">
-                <img src="./images/logo-reprograma-jucas.png" alt="Logo Reprograma Jucás">
-                <h1>M E M O R Y - G A M E</h1>
-            </header>
+      <form class="newGameForm">
+        <header class="newGameHeader">
+          <img
+            src="./images/logo-reprograma-jucas.png"
+            alt="Logo Reprograma Jucás"/>
+          <h1>racha-Cuca</h1>
+        </header>
 
-            <main>
-                <input type="text" placeholder="Transcreva seu Nick de Player"  class="inputName" autofocus><!--👈👌 Código TopZeira autofocus-->
-                <button type="submit" class="newGameButton" disabled>
-                    New Game
-                </button>
-            </main>
+        <main>
+          <input
+            type="text"
+            placeholder="Transcreva seu seu nome"
+            class="inputName"
+            autofocus
 
-            <footer> 
-                <button type="submit" class="
-                buttonRank">
-                Top Players
-                </button>
-            </footer>
+          /><!--( autofocus ) serve para um placeholder ter uma função predefinida para a ação-->
+          
+          <button type="submit" class="newGameButton" disabled>New Game</button>
+        </main>
 
-        </form>
+        <footer>
+          <button type="submit" class="buttonRank">Top Players</button>
+        </footer>
+      </form>
     </div>
-   
-</body>
+  </body>
 </html>
