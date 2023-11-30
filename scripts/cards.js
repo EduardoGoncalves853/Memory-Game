@@ -1,9 +1,14 @@
 function backPage() {
-  const playerConfirm = confirm(
-    "Deseja realmente sair? Voçê perderá seu progresso"
-  );
-  if (playerConfirm) {
+  if (gameIsFinished) {
     window.history.back();
+  } else {
+    const playerConfirm = confirm(
+      "Deseja realmente sair? Voçê perderá seu progresso"
+    );
+
+    if (playerConfirm) {
+      window.history.back();
+    }
   }
 }
 
@@ -34,7 +39,7 @@ function createCards() {
   const sortedCards = [...arrayCardsName, ...arrayCardsName].sort(
     () => Math.random() - 0.5
   );
-  
+
   gridCards.innerHTML = "";
   sortedCards.forEach((card) => {
     gridCards.innerHTML += `
@@ -47,37 +52,37 @@ function createCards() {
             </div>
             </div>
             `;
-          });
-        }
-
-function checkGamewin() {
-          const disabledCards = document.querySelectorAll(".disabledCard");
-        
-          if (disabledCards.length === 16) {
-            clearInterval(finishTimerInterval);
-        
-            const userData = {
-              name: storagePlayerNick,
-              time: timer.textContent,
-            };
-        
-            // usamos JSON parse para transformar a string em algo que JS possa trabalhar, ou seja, object.
-        
-            const storageRank = JSON.parse(
-              localStorage.setItem("@memoryGame:rank", userData)
-            );
-        
-            if (storageRank) {
-              const rankData = [...storageRank, userData];
-              localStorage.setItem("@memoryGame:rank", JSON.stringify([rankData]));
-            } else {
-              localStorage.setItem("@memoryGame:rank", JSON.stringify([userData]));
-            }
-        
-            alert(`Parabéns ${storagePlayerNick}, você ganhou com o tempo de: 00:00!`);
-          }
+  });
 }
 
+function checkGamewin() {
+  const disabledCards = document.querySelectorAll(".disabledCard");
+
+  if (disabledCards.length === 16) {
+    clearInterval(finishTimerInterval);
+    gameIsFinished = true;
+
+    const userData = {
+      name: storagePlayerNick,
+      time: timer.textContent,
+    };
+
+    // usamos JSON parse para transformar a string em algo que JS possa trabalhar, ou seja, object.
+
+    const storageRank = JSON.parse(
+      localStorage.setItem("@memoryGame:rank", userData)
+    );
+
+    if (storageRank) {
+      const rankData = [...storageRank, userData];
+      localStorage.setItem("@memoryGame:rank", JSON.stringify([rankData]));
+    } else {
+      localStorage.setItem("@memoryGame:rank", JSON.stringify([userData]));
+    }
+
+    alert(`Parabéns ${storagePlayerNick}, você ganhou com o tempo de: 00:00!`);
+  }
+}
 function checkMatchCards() {
   // se ambas as cartas tiverem o mesmo atributo ou imagem
   if (firstCard.getAttribute("name") === secondCard.getAttribute("name")) {
@@ -139,10 +144,6 @@ function setStartTimer() {
   }, 1000);
 }
 
-
-
-
-
 const playerNick = document.querySelector(".playerNick");
 const backButton = document.querySelector(".backButton");
 const gridCards = document.querySelector(".gridCards");
@@ -154,6 +155,7 @@ backButton.addEventListener("click", backPage);
 
 createCards();
 
+let gameIsFinished = false;
 let firstCard = "";
 let secondCard = "";
 clickFlipCard();
@@ -161,4 +163,3 @@ clickFlipCard();
 const initialDateTimer = new Date();
 let finishTimerInterval;
 setStartTimer();
-
